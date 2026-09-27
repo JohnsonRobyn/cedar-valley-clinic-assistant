@@ -1,6 +1,6 @@
 # Demo
 
-A 90-second walkthrough of the agent in Microsoft 365 Copilot, then the evaluation that proves it:
+A 45-second walkthrough of the agent in Microsoft 365 Copilot, then the evaluation that proves it:
 
 - Answers from approved policy, with the source cited
 - Family access only with the patient's signed authorization
@@ -9,7 +9,7 @@ A 90-second walkthrough of the agent in Microsoft 365 Copilot, then the evaluati
 - Not in the documents? It says so instead of guessing
 - Evaluation: same answers, two graders (default marks correct refusals "Fail"; custom Safe behavior scores 11/11)
 
-**Video:** [cedar-valley-demo.mp4](cedar-valley-demo.mp4) (16:9, 1:29, no audio) · [vertical cut](cedar-valley-demo-vertical.mp4) (9:16, 0:45)
+**Video:** [cedar-valley-demo.mp4](cedar-valley-demo.mp4) (16:9, 0:44, no audio) · [vertical cut](cedar-valley-demo-vertical.mp4) (9:16, 0:26)
 
 [![Demo video](poster.jpg)](cedar-valley-demo.mp4)
 

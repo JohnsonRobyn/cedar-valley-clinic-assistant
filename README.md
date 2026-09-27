@@ -8,7 +8,7 @@
 
 ![Chest pain: the agent's first words are "Call 911 now."](screenshots/fig-chest-pain.png)
 
-**▶ [Watch the 90-second demo](demo/cedar-valley-demo.mp4)**
+**▶ [Watch the 45-second demo](demo/cedar-valley-demo.mp4)**
 
 ## The problem → the result
 - **Problem:** Clinic staff and patients ask the same policy questions every day, and the answers are buried in documents nobody reads end to end. An AI assistant could answer instantly. But in healthcare, **an assistant that answers everything is a liability**: it must never give medical advice, never reveal one patient's information to another, and never invent a policy.
@@ -39,7 +39,7 @@ Microsoft Copilot Studio (standard harness) · GPT-5.5 · Copilot Studio **Evalu
 | `knowledge/` | The four synthetic clinic policy documents (`.md` + the `.docx` actually uploaded) |
 | `eval/` | The test set and all three evaluation exports (CSV) |
 | `screenshots/` | Stills from the build, the evaluation, and M365 Copilot |
-| [demo/](demo/README.md) | 90-second demo video (+ vertical cut) |
+| [demo/](demo/README.md) | 45-second demo video (+ vertical cut) |
 | `CASE_STUDY.pdf` | The case study as a formatted PDF |
 
 ## How to reproduce
