@@ -2,14 +2,14 @@
 
 ![Case study cover](assets/cover.png)
 
-*A governed AI agent for a regulated environment, built in Microsoft Copilot Studio.*
-*All clinic data and scenarios are fictional, for demonstration only. All evaluation results are real.*
+*An AI governance prototype in a fictional clinic setting, built in Microsoft Copilot Studio.*
+*An independent portfolio project, built outside my employment. All clinic data and scenarios are fictional, for demonstration only. All evaluation results are real.*
 
 ## Summary
 
-The Cedar Valley Clinic Knowledge Assistant answers the everyday policy questions a clinic fields from patients and staff (what to bring, how to get records, what a missed appointment costs, how much PTO a new hire earns) using only four approved policy documents. Just as importantly, it knows what *not* to answer. It declines medical and medication questions, sends possible emergencies to 911 in its first sentence, never reveals or confirms another patient's information, and says plainly when something isn't in its documents.
+The Cedar Valley Clinic Knowledge Assistant answers the everyday policy questions a clinic fields from patients and staff (what to bring, how to get records, what a missed appointment costs, how much PTO a new hire earns) using only four approved policy documents. Just as importantly, it knows what *not* to answer. It declines medical and medication questions, puts "call 911" first in the tested emergency scenario, is configured to refuse requests for another patient's information, and says plainly when something isn't in its documents.
 
-What sets this project apart is how it was proven. Rather than demoing a few good answers, I built a 12-case evaluation set, half of it designed to make the agent fail, and ran it four times. The first run exposed a flaw in the *grading*, not the agent. The later runs exposed two real flaws in the agent, which I fixed and re-measured on the identical test set, and a final review caught a setting left on by default.
+What sets this project apart is how it was tested. Rather than demoing a few good answers, I built a 12-case evaluation set, half of it designed to make the agent fail, and ran it four times. The first run exposed a flaw in the *grading*, not the agent. The later runs exposed two real flaws in the agent, which I fixed and re-measured on the identical test set, and a final review caught a setting left on by default.
 
 ## The problem
 
@@ -76,7 +76,7 @@ I rewrote the instructions to address exactly those two issues and nothing else,
 
 One more finding came from reviewing my own build recordings: the agent's **web search** setting had been left **on by default** through Runs 1–3. Every answer had cited the clinic documents, but "approved documents only" shouldn't depend on luck. I switched it off, republished, and re-ran the identical set. **Run 4 matched Run 3 exactly**, which confirmed the earlier results were grounded in the documents and closed the gap.
 
-After publishing, I repeated six scenarios inside Microsoft 365 Copilot: **6/6 correct** in the production channel.
+After publishing, I repeated six scenarios inside Microsoft 365 Copilot: **6/6 correct** in the Microsoft 365 Copilot channel.
 
 ## A problem solved on the way
 
@@ -90,10 +90,18 @@ The documents had been added through OneDrive and were minimally structured file
 
 - **Grounded only:** answers come from four approved documents, with the source policy cited. Web search off, verified by a re-run.
 - **Refusal by design:** clinical, medication, other-patient, and out-of-scope requests are declined, with routing to the right human.
-- **Emergency-first:** "Call 911 now" leads any possible-emergency response.
+- **Emergency-first:** "Call 911 now" leads the response in the tested emergency scenario, guided by instructions rather than a fixed topic.
 - **Layered defence:** the platform's content filter blocked the prompt-injection attempt before it reached the agent.
 - **Identity and access:** Microsoft Entra sign-in; public access blocked by environment policy; not submitted to the organisation-wide catalogue.
 - **Measured:** every claim above is backed by an exported evaluation run in `eval/`.
+
+## Known limitations
+
+- **A prototype, not a clinical system.** Four short fictional policy documents; never used with real patients or real clinical content.
+- **Fixed, single-turn test set.** 12 cases describe behaviour on those prompts only and do not establish reliability across all possible requests. Multi-turn conversations were not evaluated.
+- **Emergency handling is instruction-based,** so wording can vary; a deterministic emergency topic is the next step.
+- **The custom grader is my own.** It is published verbatim in `EVALUATION.md` so anyone can judge it.
+- **Runs only inside one development tenant**, behind Entra sign-in; there is no public demo link by design.
 
 ## What I would do next
 
@@ -103,6 +111,6 @@ The documents had been added through OneDrive and were minimally structured file
 
 ## What this demonstrates
 
-This project shows responsible AI as a working practice rather than a slogan: guardrails written into the design, an evaluation built to break them, the judgment to notice when a default metric is misleading, and the discipline to change one thing at a time and prove the result. The same pattern applies anywhere a wrong answer carries risk: HR, finance, compliance, operations.
+This project shows responsible AI as a working practice rather than a slogan: guardrails written into the design, an evaluation built to break them, the judgment to notice when a default metric is misleading, and the discipline to change one thing at a time and measure the result. The same pattern applies anywhere a wrong answer carries risk: HR, finance, compliance, operations.
 
 *All clinic data and scenarios are fictional, for demonstration only.*

@@ -70,7 +70,7 @@ Observation: with v2 the chest-pain answer no longer adds "contact your care tea
 ## Finding 3: a default left on, then verified
 A review of the build recordings showed the agent's **Web Search** setting (search all public websites) had been **enabled by default** during Runs 1–3. Every response in those runs cited the clinic documents, but for an agent whose promise is "approved documents only" the setting should be off. I switched it off, republished, and re-ran the identical set. **Run 4 reproduced Run 3 exactly**: 11/11 safe behavior, 8/11 answer quality, same behaviour on every case, including "Call 911 now." as the first sentence. That confirms the earlier results came from the documents, not the web.
 
-## Production check
+## Microsoft 365 Copilot channel check
 After publishing to Microsoft 365 Copilot, cases 1, 5, 6, 7, 9 and 10 were re-asked in the live channel: **6/6 correct.**
 
 ![Privacy boundary in Microsoft 365 Copilot](screenshots/fig-privacy.png)
